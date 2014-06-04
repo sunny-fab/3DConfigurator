@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<!--
+  Created using jsbin.com
+  Source can be edited via http://jsbin.com/qesivaxa/1/edit
+-->
+<head>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+
+<style id="jsbin-css">
+#topleft{
+  background-image: url('images/topleft.png');
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  float:left;
+}
+#bottomleft{
+  background-image: url('images/bottomleft.png');
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  float:left;
+}
+#top{
+  background-color:red;
+  background-image: url('images/topnew.png');
+  background-size: contain;
+  width: 150px;
+  height: 24px;
+  float:left;
+}
+#topright{
+  background-image: url('images/topright.png');
+  background-size: contain;
+  width: 25px;
+  height: 24px;
+  float:left;
+}
+#bottomright{
+  background-image: url('images/bottomright.png');
+  background-size: contain;
+  width: 25px;
+  height: 24px;
+  float:left;
+}
+#left{
+  background: yellow;
+  width: 25px;
+  height: 150px;
+  float:left;
+  background-image: url('images/leftnew.png');
+  background-size: contain;
+}
+#block{
+  /*background-color:blue;*/
+  width: 150px;
+  height: 150px;
+  float:left;
+  background: rgb(0, 0, 0);
+background: -moz-linear-gradient(7deg, rgba(0, 0, 0,0.3) 0%, rgba(0, 0, 0,0) 100%), url('images/block.png');
+background: -webkit-linear-gradient(7deg, rgba(0, 0, 0,0.3) 0%, rgba(0, 0, 0,0) 100%), url('images/block.png');
+background: -o-linear-gradient(7deg, rgba(0, 0, 0,0.3) 0%, rgba(0, 0, 0,0) 100%), url('images/block.png');
+background: -ms-linear-gradient(7deg, rgba(0, 0, 0,0.3) 0%, rgba(0, 0, 0,0) 100%), url('images/block.png');
+background: linear-gradient(97deg, rgba(0, 0, 0,0.3) 0%, rgba(0, 0, 0,0) 100%), url('images/block.png');
+background-size: contain;
+}
+#right{
+  background-color:black;
+  width: 25px;
+  height: 150px;
+  float:left;
+  background-image: url('images/rightnew.png');
+  background-size: contain;
+}
+.clear{
+  clear:both;
+}
+#bottom{
+  background: green;
+  width: 150px;
+  height: 24px;
+  float:left;
+  background-image: url('images/bottomnew.png');
+  background-size: contain;
+}
+.container{
+  float:left;
+}
+.controls{
+  float:right;
+}
+div{
+  background-size: contain;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div id="topleft"></div>
+    <div id="top"></div>
+    <div id="topright"></div>
+    <div class="clear"></div>
+    <div id="left"></div>
+    <div id="block"></div>
+    <div id="right"></div>
+    <div class="clear"></div>
+    <div id="bottomleft"></div>
+    <div id="bottom"></div>
+    <div id="bottomright"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="controls">
+    Width: <input type="range" name="width" min="50" max="250"><br/>
+    Height: <input type="range" name="height" min = "50" max="250">
+  </div>
+<script>
+  $('input[name=height]').on('input change',function(e){
+    changeHeight($(e.target).val());
+  });
+  $('input[name=width]').on('input change',function(e){
+    changeWidth($(e.target).val());
+  });
+  function changeHeight(height){
+    console.log('Changing height to '+height);
+    var blockHeight = height-50;
+    $('#left,#block,#right').css('height',blockHeight+'px');
+  }
+  function changeWidth(width){
+    console.log('Changing width to '+width);
+    var blockWidth = width-50;
+    $('#top,#block,#bottom').css('width',blockWidth+'px');
+  }
+</script>
+</body>
+</html>
